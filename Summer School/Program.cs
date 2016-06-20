@@ -13,46 +13,48 @@ namespace Summer_School
         static void Main(string[] args)
         {
             while (true)
-                {
+            {
                 MainMenu();
                 string menuChoice = Console.ReadLine();
 
-                
-               // int menuNumber = Convert.ToInt32(menuChoice);
 
-                    if (menuChoice == "1")
-                    {
+                // int menuNumber = Convert.ToInt32(menuChoice);
 
-                        EnrollStudent();
-                    }
+                if (menuChoice == "1")
+                {
 
-                    else if (menuChoice == "2")
-                    {
-                        UnenrollStudent();
-                    }
+                    EnrollStudent();
+                }
 
-                    else if (menuChoice == "3")
-                    {
-                        PrintMenu();
-                    }
+                else if (menuChoice == "2")
+                {
+                    UnenrollStudent();
+                }
 
-                    else if (menuChoice == "4")
-                    {
-                        Exit();
-                        break;
-                    }
-                
+                else if (menuChoice == "3")
+                {
+                    PrintMenu();
+                }
 
-                    else
-                    {
-                        Console.WriteLine("\n Please select a valid opton.");
+                else if (menuChoice == "4")
+                {
+                    Exit();
+                    break;
+                }
 
-                    }
+
+                else
+                {
+                    Console.WriteLine("\n Please select a valid opton.");
+
+                }
 
 
             }
- 
         }
+
+
+
 
         static void MainMenu()
         {
@@ -65,11 +67,11 @@ namespace Summer_School
 
         static void EnrollStudent()
         {
-            
+
             Console.WriteLine("\n Please enter name of student to be enrolled.");
             string studentName = Console.ReadLine();
 
-           int spot = FindSpot();
+            int spot = FindSpot();
             if (spot >= 0)
             {
                 Students[spot] = studentName;
@@ -87,27 +89,16 @@ namespace Summer_School
 
         static void UnenrollStudent()
         {
-
-            int spot = FindTakenSpot();
-            if (spot >= 0)
+          int i = FindTakenSpot();
+            if (i >= 0)
             {
-
-                Console.WriteLine("Please enter name of student to be unenrolled.");
-            string removeStudentName = Console.ReadLine();
-
-
-                if (removeStudentName == Students[spot])
-                {
-                    Students[spot] = null;
-
-                    Console.WriteLine("\n{0} has been removed from enrollment! \nPress enter to continue.", removeStudentName);
-                    Console.ReadKey();
-                   
-                }
-                else
-                {
-                   
-                }
+                Console.WriteLine("Please enter number of student to be unenrolled.");
+                PrintMenu();
+                int unenrollStudent = Convert.ToInt32(Console.ReadLine());
+                int unenrollStudentIndex = unenrollStudent - 1;
+                Students[unenrollStudentIndex] = null;
+                Console.WriteLine("\n Student #" + unenrollStudent + "has been removed from enrollment! \nPress enter to continue.");
+                Console.ReadKey();
             }
             else
             {
@@ -115,17 +106,18 @@ namespace Summer_School
             }
         }
 
+
         static void PrintMenu()
         {
             for (int i = 0; i < Students.Length; i++)
             {
-                Console.WriteLine(Students[i]);
+                int studentNumber = (i + 1);
+
+                Console.WriteLine(studentNumber + ": " + Students[i]);
                 if (Students[i] != null)
                 {
                     Console.WriteLine("Owes: £200");
                 }
-   
-               
             }
             Console.WriteLine("Press Enter to continue.");
             Console.ReadKey();
@@ -135,12 +127,12 @@ namespace Summer_School
         {
             Console.WriteLine("Goodbye! Press Enter to exit.");
             Console.ReadKey();
-          
+
         }
 
         static int FindSpot()
         {
-             for (int i = 0; i < Students.Length; i++)
+            for (int i = 0; i < Students.Length; i++)
             {
                 if (Students[i] == null)
                 {
@@ -154,7 +146,7 @@ namespace Summer_School
 
             return -1;
         }
-        
+
         static int FindTakenSpot()
         {
             for (int i = 0; i < Students.Length; i++)
@@ -163,6 +155,7 @@ namespace Summer_School
                 {
                     return i;
                 }
+               
             }
 
             return -1;
@@ -170,3 +163,5 @@ namespace Summer_School
 
     }
 }
+
+
