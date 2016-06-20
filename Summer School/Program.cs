@@ -18,6 +18,7 @@ namespace Summer_School
 
             if (menuNumber == 1)
             {
+                
                 EnrollStudent();
             }
 
@@ -58,6 +59,18 @@ namespace Summer_School
 
         static void EnrollStudent()
         {
+            
+            Console.WriteLine("Please enter name of student.");
+            string studentName = Console.ReadLine();
+
+           int spot = FindSpot();
+             
+            Students[spot] = studentName;
+
+            Console.WriteLine( "{0} has been added!", studentName);
+            Console.WriteLine("Press Enter to continue.");
+            Console.ReadKey();
+            MainMenu();
 
         }
 
@@ -77,6 +90,24 @@ namespace Summer_School
         static void Exit()
         {
             Console.WriteLine("Goodbye! Press Enter to exit.");
+        }
+
+        static int FindSpot()
+        {
+             for (int i = 0; i < Students.Length; i++)
+            {
+                if (Students[i] == null)
+                {
+                    return i;
+                }
+
+                else
+                {
+                    Console.WriteLine("No spots available! Please select an option.");
+                    MainMenu();
+                }
+            }
+            return -1;
         }
     }
 }
