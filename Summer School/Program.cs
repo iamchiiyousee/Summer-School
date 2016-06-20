@@ -74,7 +74,7 @@ namespace Summer_School
             {
                 Students[spot] = studentName;
 
-                Console.WriteLine("\n {0} has been added!", studentName);
+                Console.WriteLine("\n {0} has been added! \n {0} will owe £200.\n", studentName);
                 Console.WriteLine("Press Enter to continue.");
                 Console.ReadKey();
             }
@@ -95,6 +95,10 @@ namespace Summer_School
             for (int i = 0; i < Students.Length; i++)
             {
                 Console.WriteLine(Students[i]);
+                if (Students[i] != null)
+                {
+                    Console.WriteLine("Owes: £200");
+                }
             }
         }
 
