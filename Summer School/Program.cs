@@ -16,35 +16,38 @@ namespace Summer_School
                 {
                 MainMenu();
                 string menuChoice = Console.ReadLine();
-                int menuNumber = Convert.ToInt32(menuChoice);
 
-                if (menuNumber == 1)
-                {
+                
+               // int menuNumber = Convert.ToInt32(menuChoice);
 
-                    EnrollStudent();
-                }
+                    if (menuChoice == "1")
+                    {
 
-                else if (menuNumber == 2)
-                {
-                    UnenrollStudent();
-                }
+                        EnrollStudent();
+                    }
 
-                else if (menuNumber == 3)
-                {
-                    PrintMenu();
-                }
+                    else if (menuChoice == "2")
+                    {
+                        UnenrollStudent();
+                    }
 
-                else if (menuNumber == 4)
-                {
-                    Exit();
-                    break;
-                }
+                    else if (menuChoice == "3")
+                    {
+                        PrintMenu();
+                    }
 
-                else
-                {
-                    Console.WriteLine("Please select a valid opton.");
-                    MainMenu();
-                }
+                    else if (menuChoice == "4")
+                    {
+                        Exit();
+                        break;
+                    }
+                
+
+                    else
+                    {
+                        Console.WriteLine("\n Please select a valid opton.");
+
+                    }
 
 
             }
