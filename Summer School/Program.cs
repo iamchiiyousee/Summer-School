@@ -66,7 +66,7 @@ namespace Summer_School
         static void EnrollStudent()
         {
             
-            Console.WriteLine("\n Please enter name of student.");
+            Console.WriteLine("\n Please enter name of student to be enrolled.");
             string studentName = Console.ReadLine();
 
            int spot = FindSpot();
@@ -88,6 +88,31 @@ namespace Summer_School
         static void UnenrollStudent()
         {
 
+            int spot = FindTakenSpot();
+            if (spot >= 0)
+            {
+
+                Console.WriteLine("Please enter name of student to be unenrolled.");
+            string removeStudentName = Console.ReadLine();
+
+
+                if (removeStudentName == Students[spot])
+                {
+                    Students[spot] = null;
+
+                    Console.WriteLine("\n{0} has been removed from enrollment! \nPress enter to continue.", removeStudentName);
+                    Console.ReadKey();
+                   
+                }
+                else
+                {
+                   
+                }
+            }
+            else
+            {
+                Console.WriteLine("No students enrolled!");
+            }
         }
 
         static void PrintMenu()
@@ -99,7 +124,11 @@ namespace Summer_School
                 {
                     Console.WriteLine("Owes: £200");
                 }
+   
+               
             }
+            Console.WriteLine("Press Enter to continue.");
+            Console.ReadKey();
         }
 
         static void Exit()
@@ -125,5 +154,19 @@ namespace Summer_School
 
             return -1;
         }
+        
+        static int FindTakenSpot()
+        {
+            for (int i = 0; i < Students.Length; i++)
+            {
+                if (Students[i] != null)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
     }
 }
