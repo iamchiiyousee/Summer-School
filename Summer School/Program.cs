@@ -66,7 +66,7 @@ namespace Summer_School
         static void EnrollStudent()
         {
             
-            Console.WriteLine("Please enter name of student.");
+            Console.WriteLine("\n Please enter name of student.");
             string studentName = Console.ReadLine();
 
            int spot = FindSpot();
@@ -74,7 +74,7 @@ namespace Summer_School
             {
                 Students[spot] = studentName;
 
-                Console.WriteLine("{0} has been added!", studentName);
+                Console.WriteLine("\n {0} has been added!", studentName);
                 Console.WriteLine("Press Enter to continue.");
                 Console.ReadKey();
             }
@@ -94,7 +94,7 @@ namespace Summer_School
         {
             for (int i = 0; i < Students.Length; i++)
             {
-                Console.WriteLine(Students);
+                Console.WriteLine(Students[i]);
             }
         }
 
