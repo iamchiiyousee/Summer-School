@@ -8,11 +8,14 @@ namespace Summer_School
 {
     class Program
     {
+        static string[] Students = new string[15];
+
         static void Main(string[] args)
         {
             MainMenu();
             string menuChoice = Console.ReadLine();
             int menuNumber = Convert.ToInt32(menuChoice);
+
             if (menuNumber == 1)
             {
                 EnrollStudent();
@@ -30,7 +33,7 @@ namespace Summer_School
 
             else if (menuNumber == 4)
             {
-                
+                Exit();
             }
 
             else
@@ -38,6 +41,8 @@ namespace Summer_School
                 Console.WriteLine("Please select a valid opton.");
                 MainMenu();
             }
+
+            Console.ReadKey();
 
  
         }
@@ -48,9 +53,30 @@ namespace Summer_School
             Console.WriteLine("1: Enroll a student.");
             Console.WriteLine("2: Unenroll a student.");
             Console.WriteLine("3: View list of students.");
-            Console.WriteLine("Exit.");
+            Console.WriteLine("4: Exit.");
         }
 
-        
+        static void EnrollStudent()
+        {
+
+        }
+
+        static void UnenrollStudent()
+        {
+
+        }
+
+        static void PrintMenu()
+        {
+            for (int i = 0; i < Students.Length; i++)
+            {
+                Console.WriteLine(Students);
+            }
+        }
+
+        static void Exit()
+        {
+            Console.WriteLine("Goodbye! Press Enter to exit.");
+        }
     }
 }
